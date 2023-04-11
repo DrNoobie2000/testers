@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Protected Page</title>
+    <meta charset="utf-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding-top: 50px;
+            font-size: 36px;
+        }
+        input {
+            margin-top: 20px;
+            padding: 10px;
+            font-size: 20px;
+        }
+        .flash-text {
+            animation: flash-text 0.1s linear infinite;
+        }
+        @keyframes flash-text {
+            0% { color: white; }
+            50% { color: red; }
+            100% { color: white; }
+        }
+        .flash-background {
+            animation: flash-background 0.1s linear infinite;
+        }
+        @keyframes flash-background {
+            0% { background-color: #333; }
+            50% { background-color: #fff; }
+            100% { background-color: #333; }
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <label for="password">Enter password to view content:</label><br>
+        <input type="password" id="password" name="password">
+        <button type="button" onclick="checkPassword()">Submit</button>
+    </form>
+    <script>
+        function checkPassword() {
+            var password = document.getElementById("password").value;
+            if (password === "CCCC") {
+                window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
+            } else {
+                document.body.classList.add('flash-background');
+                document.body.innerHTML = "<h1 class='flash-text'>Incorrect Permission Key</h1>";
+            }
+        }
+    </script>
+</body>
+</html>
